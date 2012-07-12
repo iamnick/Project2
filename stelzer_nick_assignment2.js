@@ -8,7 +8,8 @@ var breakfastFood = "Frosted Flakes",
 	currentWeather = "sunny",
 	idealWeather = "sunny",
 	destinationInfo = [],
-	family = ["Papa", "Grandma", "Aunt Mary", "Aunt Sharon", "Mom", "Dad", "Nick", "Deanna", "Danielle"]
+	family = ["Papa", "Grandma", "Aunt Mary", "Aunt Sharon", "Mom", "Dad", "Nick", "Deanna", "Danielle"],
+	cars = ["Grand Marquis", "Civic"]
 ;
 	
 
@@ -33,10 +34,22 @@ var whereAreWeGoingToday = function (currentWeather, idealWeather) {
 	};
 };
 
+// Array Function
+var getInCars = function (people, cars, numPeople) {
+	for (var p = 0, c = 0, t = 1; p < numPeople; p++, t++) {		
+		console.log(people[p] + " got into the " + cars[c] + ".");	
+		if (t === 5) {												
+			console.log("The " + cars[c] + " is full.");								
+			c++;
+			t=0;
+		};
+	};
+};
+
 
 // Main Code
 haveBreakfast(breakfastFood);
 destinationInfo = whereAreWeGoingToday(currentWeather, idealWeather);
-
+getInCars(family, cars, family.length);
 
 
