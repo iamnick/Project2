@@ -7,9 +7,8 @@
 var breakfastFood = "Frosted Flakes",
 	currentWeather = "sunny",
 	idealWeather = "sunny",
-	destinationInfo = [],
 	family = ["Papa", "Grandma", "Aunt Mary", "Aunt Sharon", "Mom", "Dad", "Nick", "Deanna", "Danielle"],
-	cars = ["Grand Marquis", "Civic"]
+	cars = ["Grand Marquis", "Civic", "Saturn"]
 ;
 	
 
@@ -36,19 +35,23 @@ var whereAreWeGoingToday = function (currentWeather, idealWeather) {
 
 // Array Function
 var getInCars = function (people, cars, numPeople) {
-	for (var p = 0, c = 0, t = 1; p < numPeople; p++, t++) {		
-		console.log(people[p] + " got into the " + cars[c] + ".");	
-		if (t === 5) {												
-			console.log("The " + cars[c] + " is full.");								
+	var peopleInCar = "";
+	console.log("It's time for us to head out.");
+	for (var p = 0, c = 0, t = 1; p < numPeople; p++, t++) {	// p, c = indexes for people, cars arrays; t = counter for number of people in current car	
+		peopleInCar += people[p] + ", ";	
+		if (t === 5) {									
+			console.log(peopleInCar + "got in the " + cars[c] + ". The " + cars[c] + " is now full.");
 			c++;
-			t=1;
+			peopleInCar = "";		// resets string and counter for people in the car
+			t=0;
 		};
 	};
+	return (c+1)		// returns index of cars array, +1 because array starts at 0
 };
 
 // Number Function (passes an array with a # and string as argument)
 var travel = function (destinationInfo) {
-	var destination = destinationInfo[0],
+	var destination = destinationInfo[0],		// assign array to separate variables for easier to understand code
 		totalTime = destinationInfo[1],
 		timeLeft = totalTime
 	;
@@ -63,8 +66,7 @@ var travel = function (destinationInfo) {
 
 // Main Code
 haveBreakfast(breakfastFood);
-destinationInfo = whereAreWeGoingToday(currentWeather, idealWeather);
-getInCars(family, cars, family.length);
-travel(destinationInfo);
+console.log("We're using " + getInCars(family, cars, family.length) + " cars today.");
+travel(whereAreWeGoingToday(currentWeather, idealWeather));
 
 
