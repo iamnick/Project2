@@ -26,10 +26,10 @@ var haveBreakfast = function (food) {
 // Boolean Function 
 var whereAreWeGoingToday = function (currentWeather, idealWeather) {
 	if (currentWeather === idealWeather) {
-		console.log("The weather looks good today, so I think we'll go to the beach.");
-		return ["beach", 10];
+		console.log("The weather looks good today, so we're going to go to the beach.");
+		return ["the beach", 10];
 	} else {
-		console.log("The weather doesn't look ideal today, maybe we'll go visit Newport instead.");
+		console.log("The weather doesn't look ideal today, so we'll go visit Newport instead of the beach.");
 		return ["Newport", 30];
 	};
 };
@@ -41,15 +41,30 @@ var getInCars = function (people, cars, numPeople) {
 		if (t === 5) {												
 			console.log("The " + cars[c] + " is full.");								
 			c++;
-			t=0;
+			t=1;
 		};
 	};
 };
 
+// Number Function (passes an array with a # and string as argument)
+var travel = function (destinationInfo) {
+	var destination = destinationInfo[0],
+		totalTime = destinationInfo[1],
+		timeLeft = totalTime
+	;
+	
+	console.log("It's going to take " + totalTime + " minutes to get to " + destination + ".");
+	while (timeLeft >= 0) {
+		console.log("We've been driving for " + (totalTime - timeLeft) + " minutes, " + timeLeft + " to go.");
+		timeLeft -= 5;
+	};
+	console.log("We've arrived at " + destination + "!");
+};
 
 // Main Code
 haveBreakfast(breakfastFood);
 destinationInfo = whereAreWeGoingToday(currentWeather, idealWeather);
 getInCars(family, cars, family.length);
+travel(destinationInfo);
 
 
