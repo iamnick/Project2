@@ -4,3 +4,12 @@
 // Typical start of a vacation day
 
 // Variables
+breakfastFood = "Frosted Flakes"
+
+// Procedure
+var haveBreakfast = function (food) {
+	console.log("I'm having " + food + " for breakfast today.");
+};
+
+// Main Code
+haveBreakfast(breakfastFood);
