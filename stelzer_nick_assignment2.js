@@ -6,6 +6,7 @@
 // Variables
 var breakfastFood = "Frosted Flakes",
 	breakfastDrink = "Cran-Grape Juice",
+	shirts = 7,
 	warmTemp = true,
 	notRaining = true,
 	family = ["Papa", "Grandma", "Aunt Mary", "Aunt Sharon", "Mom", "Dad", "Nick", "Deanna", "Danielle"],
@@ -23,7 +24,12 @@ var haveBreakfast = function (food, drink) {
 
 // Math Function
 var pickOutShirt = function (shirts) {
-
+	var time = 0;
+	while (shirts > 0) {
+		time += 2;
+		shirts--;
+	}
+	return time;
 };
 
 // Boolean Function 
@@ -71,6 +77,7 @@ var travel = function (destinationInfo) {
 
 // Main Code
 haveBreakfast(breakfastFood, breakfastDrink);
+console.log("It took me " + pickOutShirt(shirts) + " minutes to look through my shirts and choose one.");
 console.log("We're using " + getInCars(family, cars, family.length) + " cars today.");
 travel(whereAreWeGoingToday(warmTemp, notRaining));
 
